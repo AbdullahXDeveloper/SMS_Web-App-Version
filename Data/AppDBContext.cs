@@ -9,6 +9,6 @@ namespace SMS_Web_App_Version.Data
         {
         }
 
-        DbSet<Student> students { get; set; }
+        public DbSet<Student> students { get; set; }
     }
 }
