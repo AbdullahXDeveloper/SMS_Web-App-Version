@@ -19,11 +19,6 @@ namespace SMS_Web_App_Version.Controllers
             _context = context;
         }
 
-        // GET: Students
-        //public async Task<IActionResult> Index()
-        //{
-        //    return View(await _context.students.ToListAsync());
-        //}
         public async Task<IActionResult> Index(string searchString)
         {
             var students = from s in _context.students
