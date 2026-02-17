@@ -18,6 +18,6 @@ namespace SMS_Web_App_Version.Models
         [EmailAddress]
         public string EmailAddress { get; set; }
 
-        public string cource { get; set; }
+        public string Course { get; set; }
     }
 }

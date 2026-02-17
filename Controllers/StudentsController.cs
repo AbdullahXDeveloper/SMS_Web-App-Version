@@ -20,10 +20,23 @@ namespace SMS_Web_App_Version.Controllers
         }
 
         // GET: Students
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    return View(await _context.students.ToListAsync());
+        //}
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.students.ToListAsync());
+            var students = from s in _context.students
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                students = students.Where(s => s.Name.Contains(searchString));
+            }
+
+            return View(await students.ToListAsync());
         }
+
 
         // GET: Students/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -48,13 +61,12 @@ namespace SMS_Web_App_Version.Controllers
         {
             return View();
         }
-
         // POST: Students/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Age,EmailAddress,cource")] Student student)
+        public async Task<IActionResult> Create([Bind("Id,Name,Age,EmailAddress,Course")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +98,7 @@ namespace SMS_Web_App_Version.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Age,EmailAddress,cource")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Age,EmailAddress,Course")] Student student)
         {
             if (id != student.Id)
             {

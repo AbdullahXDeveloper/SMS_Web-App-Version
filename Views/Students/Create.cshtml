@@ -1,4 +1,4 @@
-﻿@model SMS_Web_App_Version.Models.Student
+﻿@* @model SMS_Web_App_Version.Models.Student
 
 @{
     ViewData["Title"] = "Create";
@@ -45,4 +45,46 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+} *@
+
+@model SMS_Web_App_Version.Models.Student
+
+<h2 class="mb-4">Add New Student</h2>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Age" class="form-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="EmailAddress" class="form-label"></label>
+                <input asp-for="EmailAddress" class="form-control" />
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Course" class="form-label"></label>
+                <input asp-for="Course" class="form-control" />
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <a asp-action="Index" class="btn btn-secondary">Back</a>
+                <button type="submit" class="btn btn-success">Save</button>
+            </div>
+        </form>
+
+    </div>
+</div>
