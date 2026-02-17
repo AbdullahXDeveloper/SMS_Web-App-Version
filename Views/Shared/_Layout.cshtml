@@ -30,11 +30,10 @@
             </div>
         </nav> *@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-            <div class="container">
-                <a class="navbar-brand fw-bold" asp-controller="Students" asp-action="Index">
-                    🎓 Student Management
-                </a>
-            </div>
+            <div class="container"><a class="navbar-brand fw-bold" asp-controller="Students" asp-action="Index">🎓 Student Management</a></div>
+            <a class="btn btn-outline-warning text-white m-1" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
+            <a class="btn btn-outline-danger text-white" asp-controller="Students" asp-action="Index">Students</a>
+
         </nav>
 
     </header>

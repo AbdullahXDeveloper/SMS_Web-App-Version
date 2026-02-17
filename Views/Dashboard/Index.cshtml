@@ -1,0 +1,40 @@
+﻿@model IEnumerable<SMS_Web_App_Version.Models.Student>
+
+<h2 class="mb-4">Dashboard</h2>
+
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary shadow">
+            <div class="card-body">
+                <h5>Total Students</h5>
+                <h2>@ViewBag.TotalStudents</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h5 class="mb-3">Recently Added Students</h5>
+
+        <table class="table table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model)
+                {
+                    <tr>
+                        <td>@student.Name</td>
+                        <td>@student.EmailAddress</td>
+                        <td>@student.Course</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
